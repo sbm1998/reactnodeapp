@@ -14,12 +14,12 @@ function Signup() {
     const [userCredentials, setUserCredentials] = useState(initialState);
     
 
-    // listening to the event
+
     const handleInput = ({ target }) => {
         setUserCredentials({ ...userCredentials, [target.name]: target.value });
     };
 
-    // check weather password is matched
+
     
 
     const handleSignupAction = async (event) => {
