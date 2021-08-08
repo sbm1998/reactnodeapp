@@ -1,6 +1,7 @@
 import postData from '../models/postData.js'
 
 export const getPosts= async(req,res)=>{
+//
     try{
         const  postInformation= await postData.find();
         console.log(postInformation)

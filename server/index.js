@@ -5,7 +5,7 @@ import cors from 'cors'
 
 import postRoutes from "./routes/post.js"
 
-
+// 
 
 const app=express();
 app.use('/post',postRoutes)
