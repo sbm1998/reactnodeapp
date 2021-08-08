@@ -6,7 +6,7 @@ const router = express.Router();
 
 router.get('/', getPosts);
 router.post('/posts', createPosts);
-router.patch('/:id', updatePost);
+router.patch("/:id", updatePost);
 router.delete('/:id', deletePost);
 
 

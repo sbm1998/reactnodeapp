@@ -14,6 +14,6 @@ const userData = new Schema({
         type: String,
     },
 });
-var userDetail = mongoose.model('userDetail',userData);
+var userDetail = mongoose.model("userDetail",userData);
 
 export default userDetail;

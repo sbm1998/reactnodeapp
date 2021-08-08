@@ -9,6 +9,7 @@ export const getPosts= async(req,res)=>{
         res.status(404).json({message:error.message})
     }
 }
+//
 
 export const createPosts = async (req, res) => {
     const { name,email,city } = req.body;
@@ -23,7 +24,7 @@ export const createPosts = async (req, res) => {
         res.status(409).json({ message: error.message });
     }
 }
-
+//
 export const updatePost = async (req, res) => {
     const { id } = req.params;
     const { name,email,city } = req.body;

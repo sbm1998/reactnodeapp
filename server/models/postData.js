@@ -8,5 +8,5 @@ const dataSchema=mongoose.Schema({
 })
 
 var datainfo = mongoose.model('datainfo',dataSchema);
-
+//
 export default datainfo;
