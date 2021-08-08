@@ -1,3 +1,4 @@
+//export const
 export const loginUser = () => {
     return {
         type: "AUTHENTICATE_USER_YES",

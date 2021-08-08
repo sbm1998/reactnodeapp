@@ -7,7 +7,7 @@ const Users = ({ setCurrentId }) => {
   
   const recordFields = records.length > 0 ? Object.keys(records[0]) : [];
   console.log(recordFields)
-  
+  //
   return (
     <div>
       {!records[0] ? "No Record Found": <table>

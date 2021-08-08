@@ -1,3 +1,4 @@
+//
 export const authTrue = () => {
     return {
         type: "USER_AUTHENTICATED_TRUE",

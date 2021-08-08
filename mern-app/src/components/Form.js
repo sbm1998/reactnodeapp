@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import {useDispatch} from 'react-redux'; 
 import {createData,updateData} from '../actions/userAction'
 import {useSelector} from 'react-redux';
-
+//
 const Form =({currentId})=>{
     const dispatch=useDispatch(); 
     const [postData,setPostData]=useState({name:" ",email:" ",city:" "});

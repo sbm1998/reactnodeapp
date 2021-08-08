@@ -1,6 +1,7 @@
 import { FETCH_ALL, CREATE, UPDATE, DELETE } from '../actions/index';
 
 export default function usersData(users = [], action){
+  //
   switch (action.type) {
     case FETCH_ALL:
       return action.payload;

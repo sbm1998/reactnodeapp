@@ -1,3 +1,4 @@
+//
 const authenticationReducer = (state = false, action) => {
     switch (action.type) {
         case "USER_AUTHENTICATED_TRUE":
