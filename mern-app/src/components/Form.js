@@ -3,7 +3,7 @@ import {useDispatch} from 'react-redux';
 import {createData,updateData} from '../actions/userAction'
 import {useSelector} from 'react-redux';
 
-const Form =({currentId,setCurrentId})=>{
+const Form =({currentId})=>{
     const dispatch=useDispatch(); 
     const [postData,setPostData]=useState({name:" ",email:" ",city:" "});
     const post =useSelector((state)=>currentId ? state.posts.find((p)=>p.id===currentId):null)

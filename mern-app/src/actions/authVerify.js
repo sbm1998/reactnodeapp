@@ -4,7 +4,7 @@ export const authTrue = () => {
     };
 };
 
-export const authFalse = () => {
+export const authFalse = () =>{
     return {
         type: "USER_AUTHENTICATED_FALSE",
     };

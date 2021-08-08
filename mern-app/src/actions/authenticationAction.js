@@ -4,7 +4,7 @@ export const loginUser = () => {
     };
 };
 
-export const signupUser = () => {
+export const signupUser = () =>{
     return {
         type: "SIGNUP_USER",
     };
