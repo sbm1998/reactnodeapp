@@ -2,7 +2,8 @@ import {CREATE,FETCH_ALL, UPDATE, DELETE,} from './index';
 
 import * as api from '../api/index.js';
 
-export const getData = () => async (dispatch) => {
+export const getData = () => 
+  async (dispatch) => {
   try {
     const { data } = await api.getData();
 
@@ -12,7 +13,8 @@ export const getData = () => async (dispatch) => {
   }
 };
 //
-export const createData = (userdata) => async (dispatch) => {
+export const createData = (userdata) =>
+   async (dispatch) => {
   try {
     const { data } = await api.createData(userdata);
 
@@ -22,7 +24,8 @@ export const createData = (userdata) => async (dispatch) => {
   }
 };
 
-export const updateData = (id, newdata) => async (dispatch) => {
+export const updateData = (id, newdata) => 
+    async (dispatch) => {
   try {
     const { data } = await api.updateData(id, newdata);
 
@@ -32,7 +35,8 @@ export const updateData = (id, newdata) => async (dispatch) => {
   }
 };
 
-export const deleteData = (id) => async (dispatch) => {
+export const deleteData = (id) => 
+    async (dispatch) => {
   try {
     await api.deleteData(id);
 

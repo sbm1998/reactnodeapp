@@ -1,7 +1,8 @@
 import React, {useState} from "react";
 import { Link, useHistory } from "react-router-dom";
+import {useDispatch} from 'react-redux'
+import {signin,signup} from '../actions/authenticationAction'
 
-import axios from "axios";
 
 const initialState = {
     email: "",
@@ -10,8 +11,10 @@ const initialState = {
 };
 
 function Signup() {
-    const history = useHistory();
     const [userCredentials, setUserCredentials] = useState(initialState);
+    const [isSignup, setIsSignup] = useState(false);
+    const dispatch = useDispatch();
+    const history = useHistory();
     
 
 
@@ -19,20 +22,20 @@ function Signup() {
         setUserCredentials({ ...userCredentials, [target.name]: target.value });
     };
 
-
+    const handleSignupAction = async (e) => {
+        e.preventDefault();
+    if (isSignup) {
+      dispatch(signup(userCredentials, history));
+      
+    } else {
+      dispatch(signin(userCredentials, history));
+    }
     
-
-    const handleSignupAction = async (event) => {
-        event.preventDefault();
-
-        axios
-            .post(process.env.REACT_APP_SIGNUP_URI, userCredentials)
-            .then((res) => {
-                console.log(res);
-                history.push("/");
-            })
-            .catch((err) => console.error(err));
     };
+    const pageSwitch = () => {
+        userCredentials(initialState);
+        setUserCredentials((prevIsSignup) => !prevIsSignup);
+      };
 //
     return (
         <div>
@@ -48,8 +51,9 @@ function Signup() {
 
       
         
-        <input type="submit" value="submit">Login</input>
-        <Link to="/signup">Signup</Link>
+        <input type="submit" value={isSignUp ? 'SignUp':'Sign In'}/>
+        <input type="submit" onClick={pageSwitch} value={ isSignup ? 'Already have an account? Sign in' : "Don't have an account? Sign Up" }/>
+
 
         </form>
             </div>

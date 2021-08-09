@@ -1,12 +1,28 @@
-//export const
-export const loginUser = () => {
-    return {
-        type: "AUTHENTICATE_USER_YES",
-    };
+import { AUTH } from './index';
+import * as api from '../api/index.js';
+
+export const signin = (formData, router) => 
+      async (dispatch) => {
+  try {
+    const { data } = await api.signIn(formData);
+
+    dispatch({ type: AUTH, data });
+
+    router.push('/');
+  } catch (error) {
+    console.log(error);
+  }
 };
 
-export const signupUser = () =>{
-    return {
-        type: "SIGNUP_USER",
-    };
+export const signup = (formData, router) => 
+       async (dispatch) => {
+  try {
+    const { data } = await api.signUp(formData);
+
+    dispatch({ type: AUTH, data });
+
+    router.push('/');
+  } catch (error) {
+    console.log(error);
+  }
 };

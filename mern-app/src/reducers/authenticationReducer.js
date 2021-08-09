@@ -1,10 +1,12 @@
-//
-const authenticationReducer = (state = false, action) => {
+import {AUTH} from '../actions/index'
+const authenticationReducer = (state = {authData:null}, action) => {
     switch (action.type) {
-        case "USER_AUTHENTICATED_TRUE":
-            return (state = true);
-        case "USER_AUTHENTICATED_FALSE":
-            return (state = false);
+        case AUTH:
+            localStorage.setItem('profile', JSON.stringify({ ...action?.data }));
+            return { ...state, 
+            authData: action.data, 
+            loading: false, 
+            errors: null };
         default:
             return state;
     }
