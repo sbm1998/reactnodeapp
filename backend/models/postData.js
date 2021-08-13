@@ -1,11 +1,20 @@
-import mongoose from 'mongoose';
-//
-const dataSchema=mongoose.Schema({
-    name: String,
-    email: String,
-    city: String,
-})
+import mongoose from "mongoose";
 
-var datainfo = mongoose.model('datainfo',dataSchema);
+const Schema = mongoose.Schema;
 //
-export default datainfo;
+const userData = new Schema({
+    name: {
+        type: String,
+        required: true,
+    },
+    email: {
+        type: String,
+        required: true,
+    },
+    city: {
+        type: String,
+    },
+});
+var userinfo = mongoose.model("userinfo",userData);
+
+export default userinfo;

@@ -35,7 +35,7 @@ const AddUser=()=>{
     return(
         <div>
             <center>
-            <h2>Add Form</h2>
+            <h2><em>SignUp Form</em></h2>
             {error && <h3>{error}</h3>}
             <form onSubmit={handleSubmit}>
             <label for="name">Name:</label><br/>

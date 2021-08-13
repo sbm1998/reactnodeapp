@@ -28,7 +28,7 @@ const AddData=()=>{
         else{
             dispatch(requestCreateUser(state));
             console.log(state.name,state.email,state.city)
-            history.push("/signup");
+            history.push("/getusers");
             setError("");
     }
 }

@@ -26,14 +26,14 @@ const AddUser=()=>{
         }
         else{
             dispatch(signIn(state));
-            history.push("/addData");
+            history.push("/home");
             setError("");
     }
 }
     return(
         <div>
             <center>
-            <h2>Add Form</h2>
+            <h2><em>Login Form</em></h2>
             {error && <h3>{error}</h3>}
             <form onSubmit={handleSubmit}>
             <label for="email">Email:</label><br />
