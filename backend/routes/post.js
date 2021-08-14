@@ -10,7 +10,4 @@ router.patch("/edit/:id", updatePost);
 router.delete("/users/:id",deletePost);
 
 
-
-
-
 export default router;

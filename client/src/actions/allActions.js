@@ -8,10 +8,12 @@ import {
     SET_USER
 } from './index'
 
-export const createUser=(payload)=>({
+export const createUser=(payload)=>{
+    console.log(payload, 'adduser');
+    return ({
     type:CREATE_USER,
     payload,
-})
+})}
 export const signin=(payload)=>{
     console.log(payload.token)
     console.log(payload.result._id)

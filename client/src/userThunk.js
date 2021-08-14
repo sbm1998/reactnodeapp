@@ -8,8 +8,8 @@ export const requestCreateUser= (newdata) => {
     return async(dispatch)=>{
     try{
     const response=await URL.post('/posts',newdata);
-    
-    dispatch(createUser(response.data));
+
+    if(response.data) dispatch(createUser(response.data));
     }catch(err){
         console.log(err)
     }

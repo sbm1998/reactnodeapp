@@ -6,7 +6,7 @@ import { signIn } from '../userThunk';
 
 
 const AddUser=()=>{
-    const [state,setState]=useState({
+    const [loginData,setLoginData]=useState({
         email:"",
         password:"",
     })
@@ -14,10 +14,15 @@ const AddUser=()=>{
     let dispatch=useDispatch();
     let history=useHistory();
 
-    const {email,password}=state;
+    console.log(loginData);
+    const {email,password}=loginData;
+
+    console.log(email, 'email');
+    console.log(password, 'password');
+
     const handleAddData=(e)=>{
         let {name,value}=e.target;
-        setState({...state,[name]:value})
+        setLoginData({...loginData,[name]:value})
     }
     const handleSubmit= (e)=>{
         e.preventDefault();
@@ -25,7 +30,7 @@ const AddUser=()=>{
             setError("Fill All the Value First");
         }
         else{
-            dispatch(signIn(state));
+            dispatch(signIn(loginData));
             history.push("/home");
             setError("");
     }
@@ -37,7 +42,7 @@ const AddUser=()=>{
             {error && <h3>{error}</h3>}
             <form onSubmit={handleSubmit}>
             <label for="email">Email:</label><br />
-            <input type="email" id="email" name="email" value={email} onChange={handleAddData}/><br />
+            <input type="email" id="email" name="email" value={email} autoComplete="off" onChange={handleAddData}/><br />
             <label for="password">Password:</label><br />
             <input type="password" id="password" name="password" value={password} onChange={handleAddData}/><br />
             <input type="submit" value="Submit"/>

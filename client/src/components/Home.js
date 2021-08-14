@@ -2,6 +2,12 @@ import React from 'react'
 import { useHistory } from "react-router-dom";
 const Welcome=()=>{
     let history=useHistory();
+
+    const handleLogout=()=>{
+        localStorage.removeItem("token"); 
+        history.push("/login")
+    }
+
     return(
         <div>
             <center>
@@ -10,7 +16,7 @@ const Welcome=()=>{
            <h1><em>You Can Add New User or See Details of Existing User</em></h1>
            <button onClick={() =>{history.push("/getusers");}}>ShowUsers</button><br /><br />
            <button onClick={() =>{history.push("/addData");}}>AddUser</button><br /><br />
-           
+           <button onClick={handleLogout}>Logout</button><br /><br />
            </center>
         </div>
     )

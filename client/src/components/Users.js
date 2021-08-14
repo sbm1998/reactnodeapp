@@ -14,6 +14,8 @@ export default function Users(){
         dispatch(requestgetusers(records));
 },[dispatch]);
 
+console.log(records);
+
 const recordsFields= records.length > 0 ? Object.keys(records[0]) : [];
 console.log(recordsFields)
 return (

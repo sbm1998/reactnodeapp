@@ -4,7 +4,8 @@ const initialState={
     users:[],
     updateuser:[],
     token: localStorage.getItem("token"),
-    _id:localStorage.getItem("_id")
+    _id:localStorage.getItem("_id"),
+  
 }
 
 export default function userData(state=initialState,action){
@@ -12,8 +13,9 @@ export default function userData(state=initialState,action){
         case CREATE_USER :
             return{
                 ...state,
-                users:action.payload.users
+                users: [...state.users, action.payload]
             }
+            
         case FETCH_ALL:
             return{
                 ...state,
