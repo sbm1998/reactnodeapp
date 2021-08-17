@@ -2,21 +2,18 @@ import mongoose from "mongoose";
 
 const Schema = mongoose.Schema;
 //
-const userData = new Schema({
+const commentData = new Schema({
     name: {
         type: String,
         required: true,
     },
-    email: {
+    body: {
         type: String,
         required: true,
     },
-    password: {
-        type: String,
-    },
 });
-var userDetail = mongoose.model("userDetail",userData);
+var commentDetail = mongoose.model("commentDetail",commentData);
 
-export default userDetail;
+export default commentDetail;
 
 

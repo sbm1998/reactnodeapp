@@ -5,7 +5,11 @@ import {
     FETCH_ALL,
     DELETE_USER,
     UPDATE_USER,
-    SET_USER
+    SET_USER,
+    CREATE_POST,
+    GET_POST,
+    CREATE_COMMENT,
+    GET_COMMENT,
 } from './index'
 
 export const createUser=(payload)=>{
@@ -50,6 +54,26 @@ export const setUser=(payload)=>({
     type:SET_USER,
     payload,
 })
+
+export const createPost=(payload)=>({
+    type:CREATE_POST,
+    payload,
+})
+
+export const getPost=(payload)=>({
+    type:GET_POST,
+    payload,
+  })
+
+export const createComment=(payload)=>({
+    type:CREATE_COMMENT,
+    payload,
+})
+
+export const getComment=(payload)=>({
+    type:GET_COMMENT,
+    payload,
+  })
   
 
 

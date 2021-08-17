@@ -8,6 +8,10 @@ import AddData from './AddData';
 import Users from './Users'
 import Home from './Home'
 import UpdateForm from './UpdateForm';
+import AddPost from './AddPost';
+import GetPost from './GetPost';
+import AddComment from './AddComment';
+import GetComment from './GetComment';
 
 const PrivateRoute=(props)=>{
     const {token}=useSelector((state)=>state.userData)
@@ -29,6 +33,12 @@ function Routes(){
         <PrivateRoute path='/addData' exact component={AddData}/>
         <PrivateRoute path='/getusers' exact component={Users}/>
         <PrivateRoute path='/updatedata' exact component={UpdateForm}/>
+        <PrivateRoute path='/postusers' exact component={AddPost}/>
+        <PrivateRoute path='/getuserspost' exact component={GetPost}/>
+        <PrivateRoute path='/addComment' exact component={AddComment}/>
+        <PrivateRoute path='/getcomment' exact component={GetComment}/>
+
+
 
         <Route path='/' exact component={LandingPage} />
         <Route path='/login' exact component={LoginForm} />

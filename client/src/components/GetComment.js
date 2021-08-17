@@ -1,17 +1,18 @@
 import {useEffect} from 'react'
 import {useDispatch,useSelector} from 'react-redux'
-import { requestgetusers,requestdeleteuser} from '../userThunk'
-import { setUser } from '../actions/allActions';
+import {requestgetComment} from '../userThunk'
 import { useHistory } from 'react-router-dom';
 
 
-export default function Users(){
+export default function GetComment(){
     const dispatch=useDispatch();
-    const records=useSelector((state)=>state.userData.users);
+    const records=useSelector((state)=>state.userData.comment);
+   // const userId=useSelector((state)=>state.userData._id);
+
     let history=useHistory();
 
     useEffect(()=>{
-        dispatch(requestgetusers(records));
+        dispatch(requestgetComment(records));
 },[dispatch]);
 
 console.log(records);
@@ -21,7 +22,7 @@ console.log(recordsFields)
 return (
     
     <div>
-        <h1>Hello Users</h1>
+        <h1>Users Comments</h1>
         
        
         <table>
@@ -42,13 +43,7 @@ return (
 
                    {typeof record[field]==="object" ? JSON.stringify(record[field]) : record[field] }
                 </td>
-               
-            ))}
-         <input type="button" value="deleteData" onClick={() => dispatch(requestdeleteuser(record._id))}/>
-        <input type="button" value='Update' onClick={()=>{dispatch(setUser(record)) 
-            history.push("/updatedata")} } />
-        <input type="button" value='ShowPosts' onClick={()=>history.push("/getuserspost")}/>
-            
+            ))}   
             </tr>)
         )}
         </tbody>
