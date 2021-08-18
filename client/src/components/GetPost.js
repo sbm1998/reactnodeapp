@@ -7,8 +7,7 @@ import { useHistory } from 'react-router-dom';
 export default function GetPost(){
     const dispatch=useDispatch();
     const records=useSelector((state)=>state.userData.posts);
-    const userId=useSelector((state)=>state.userData._id);
-    console.log(userId)
+    
     let history=useHistory();
 
     useEffect(()=>{

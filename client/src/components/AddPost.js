@@ -5,30 +5,32 @@ import { requestAddPost } from '../userThunk';
 
 
 
-const AddData=()=>{
+const AddPost=()=>{
+    const postId=useSelector((state)=>state.userData.id);
+    console.log(postId);
     const [state,setState]=useState({
         title:"",
         body:"",
+        id:postId,
     })
     const [error,setError]=useState(" ")
     let dispatch=useDispatch();
     let history=useHistory();
-    const userId=useSelector((state)=>state.userData._id);
 
-    const {title,body}=state;
+    const {title,body,id}=state;
     const handleAddData=(e)=>{
         let {name,value}=e.target;
         setState({...state,[name]:value})
     }
     const handleSubmit= (e)=>{
         e.preventDefault();
-        if(!title || !body){
+        if(!id || !title || !body){
             setError("Fill All the Value First");
         }
         else{
+            console.log(state.title,state.body,state.id)
             dispatch(requestAddPost(state));
-            console.log(state.title,state.body)
-            history.push("/getusers");
+            history.push("/getuserspost");
             setError("");
     }
 }
@@ -49,4 +51,4 @@ const AddData=()=>{
 
     )
 }
-export default AddData;
+export default AddPost;

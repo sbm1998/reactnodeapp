@@ -9,4 +9,6 @@ export const CREATE_POST="CREATE_POST";
 export const GET_POST="GET_POST";
 export const CREATE_COMMENT="CREATE_COMMENT";
 export const GET_COMMENT="GET_COMMENT";
+export const GET_POST_ID="GET_POST_ID"
+export const LOGIN_USER_POST="LOGIN_USER_POST"
 

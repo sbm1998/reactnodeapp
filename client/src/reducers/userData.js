@@ -1,13 +1,25 @@
-import {CREATE_USER,SIGN_IN,SIGN_UP,FETCH_ALL, DELETE_USER,UPDATE_USER,SET_USER, CREATE_POST, GET_POST,CREATE_COMMENT,GET_COMMENT} from '../actions/index'
+import {CREATE_USER,
+    SIGN_IN,SIGN_UP,
+    FETCH_ALL, 
+    DELETE_USER,
+    UPDATE_USER,
+    SET_USER, 
+    CREATE_POST, 
+    GET_POST,
+    CREATE_COMMENT,
+    GET_COMMENT,
+    GET_POST_ID,
+    LOGIN_USER_POST,
+} from '../actions/index'
 
 const initialState={
     users:[],
     updateuser:[],
     posts:[],
     comment:[],
+    userId:null,
     token: localStorage.getItem("token"),
-    _id:localStorage.getItem("_id"),
-  
+    id:localStorage.getItem("id")
 }
 
 export default function userData(state=initialState,action){
@@ -60,6 +72,11 @@ export default function userData(state=initialState,action){
                 ...state,
                 posts:action.payload,
                 }
+        case GET_POST_ID:
+            return{
+                ...state,
+                userId:action.payload,
+            }
         case CREATE_COMMENT:
             return{
                 ...state,
@@ -70,6 +87,11 @@ export default function userData(state=initialState,action){
                 ...state,
                 comment:action.payload,
                 }
+        case LOGIN_USER_POST:
+            return{
+                ...state,
+                posts:action.payload
+                    }
         default:
         return state
     }

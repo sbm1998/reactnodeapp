@@ -10,6 +10,8 @@ import {
     GET_POST,
     CREATE_COMMENT,
     GET_COMMENT,
+    GET_POST_ID,
+    LOGIN_USER_POST,
 } from './index'
 
 export const createUser=(payload)=>{
@@ -65,6 +67,11 @@ export const getPost=(payload)=>({
     payload,
   })
 
+export const getPostId=(payload)=>({
+    type:GET_POST_ID,
+    payload,
+  })
+
 export const createComment=(payload)=>({
     type:CREATE_COMMENT,
     payload,
@@ -75,6 +82,10 @@ export const getComment=(payload)=>({
     payload,
   })
   
+export const loginPost=(payload)=>({
+    type:LOGIN_USER_POST,
+    payload,
+})
 
 
 

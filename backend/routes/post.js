@@ -8,6 +8,7 @@ import {getPosts,
         getUserPost,
         createuserComment,
         getUserComment,
+        loginUserPost
 
     } 
     from '../controllers/posts.js'
@@ -22,6 +23,7 @@ router.patch("/edit/:id", updatePost);
 router.delete("/users/:id",deletePost);
 router.get('/getuserspost',  getUserPost);
 router.get('/getuserscomment', getUserComment);
+router.get('/loginuserpost/:id',loginUserPost)
 
 
 export default router;

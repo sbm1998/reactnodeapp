@@ -58,9 +58,9 @@ export const deletePost =async (req,res)=>{
 }
 
 export const createuserPost = async (req, res) => {
-    const { title,body } = req.body;
+    const {title,body,id } = req.body;
 
-    const newPostMessage = new postUserData({ title,body })
+    const newPostMessage = new postUserData({ title,body,id })
 
     try {
         await newPostMessage.save();
@@ -105,3 +105,15 @@ export const getUserComment= async(req,res)=>{
             res.status(404).json({message:error.message})
             }
         }
+
+export const loginUserPost=async(req,res)=>{
+    try{
+        const id=req.params.id
+        const  postInformation= await postUserData.find({id:id});
+        res.status(200).json(postInformation)
+    }
+    catch(error){
+        console.log(error)
+        res.status(404).json({message:error.message})
+    }
+}

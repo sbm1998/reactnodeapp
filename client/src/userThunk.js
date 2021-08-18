@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {createUser,signup,signin,getusers,deleteusers,updateusers,createPost,getPost,createComment,getComment} from './actions/allActions'
+import {createUser,signup,signin,getusers,deleteusers,updateusers,createPost,getPost,createComment,getComment,loginPost} from './actions/allActions'
 const URL = axios.create({
     baseURL:  'http://localhost:8080',
   });
@@ -129,6 +129,19 @@ export const requestgetComment=(state)=>{
           console.log(error)
           
       }
+  }
+}
+
+export const requestgetLoginUserPost=(id)=>{
+  return async(dispatch)=>{
+    try{
+      const usersData=await URL.get(`/loginuserpost/${id}`)
+      console.log(usersData)
+      dispatch(loginPost(usersData.data))
+        }
+    catch(error){
+      console.log(error);
+    }
   }
 }
 
