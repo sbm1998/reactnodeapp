@@ -43,7 +43,6 @@ return (
                    {typeof record[field]==="object" ? JSON.stringify(record[field]) : record[field] }
                 </td>
             ))}   
-            <input type="button" value='ShowComment' onClick={()=>history.push("/getcomment")}/>
             </tr>)
         )}
         </tbody>

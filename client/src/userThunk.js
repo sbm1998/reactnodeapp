@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {createUser,signup,signin,getusers,deleteusers,updateusers,createPost,getPost,createComment,getComment,loginPost} from './actions/allActions'
+import {createUser,signup,signin,getusers,deleteusers,updateusers,createPost,getPost,createComment,getComment,loginPost,loginComment,autoSearch} from './actions/allActions'
 const URL = axios.create({
     baseURL:  'http://localhost:8080',
   });
@@ -118,11 +118,11 @@ export const requestAddComment= (newcomment) => {
  }
 }
 
-export const requestgetComment=(state)=>{
+export const requestgetComment=(id)=>{
   return async(dispatch)=>{
       try {
-          console.log(state)
-          const usersData=await URL.get("/getuserscomment",state)
+          console.log(id)
+          const usersData=await URL.get(`/getuserscomment/${id}`)
           console.log(usersData)
           dispatch(getComment(usersData.data))
       } catch (error) {
@@ -141,6 +141,32 @@ export const requestgetLoginUserPost=(id)=>{
         }
     catch(error){
       console.log(error);
+    }
+  }
+}
+
+export const requestgetLoginUserComment=(id)=>{
+  return async(dispatch)=>{
+    try{
+      const usersData=await URL.get(`{/loginusercomment/$id}`)
+      console.log(usersData)
+      dispatch(loginComment(usersData.data))
+        }
+    catch(error){
+      console.log(error);
+    }
+  }
+}
+
+export const requestautoSearch=(state)=>{
+  return async(dispatch)=>{
+    try{
+      const usersData=await URL.get('/autosearch',state);
+      console.log(usersData);
+      dispatch(autoSearch(usersData.data))
+    }
+    catch(error){
+      console.log(error)
     }
   }
 }

@@ -10,6 +10,9 @@ import {CREATE_USER,
     GET_COMMENT,
     GET_POST_ID,
     LOGIN_USER_POST,
+    LOGIN_USER_COMMENT,
+    SET_USER_POST,
+    AUTO_SEARCH,
 } from '../actions/index'
 
 const initialState={
@@ -18,6 +21,8 @@ const initialState={
     posts:[],
     comment:[],
     userId:null,
+    setUserPost:{},
+    autoSearch:[],
     token: localStorage.getItem("token"),
     id:localStorage.getItem("id")
 }
@@ -92,6 +97,21 @@ export default function userData(state=initialState,action){
                 ...state,
                 posts:action.payload
                     }
+        case LOGIN_USER_COMMENT:
+            return{
+                ...state,
+                comment:action.payload
+                }
+        case SET_USER_POST:
+            return{
+                ...state,
+                setUserPost:{...state.setUserPost,...action.payload}
+            }
+        case AUTO_SEARCH:
+            return{
+                ...state,
+                autoSearch:action.payload
+            }
         default:
         return state
     }

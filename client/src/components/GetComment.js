@@ -7,12 +7,15 @@ import { useHistory } from 'react-router-dom';
 export default function GetComment(){
     const dispatch=useDispatch();
     const records=useSelector((state)=>state.userData.comment);
-   // const userId=useSelector((state)=>state.userData._id);
+    const userId=useSelector((state)=>state.userData.id);
+    const postId=useSelector((state)=>state.userData.setUserPost._id);
+    console.log(userId);
+    console.log(postId);
 
     let history=useHistory();
 
     useEffect(()=>{
-        dispatch(requestgetComment(records));
+        dispatch(requestgetComment(postId));
 },[dispatch]);
 
 console.log(records);

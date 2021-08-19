@@ -8,8 +8,9 @@ import {getPosts,
         getUserPost,
         createuserComment,
         getUserComment,
-        loginUserPost
-
+        loginUserPost,
+        loginUsercomment,
+        autoSearch
     } 
     from '../controllers/posts.js'
 
@@ -24,6 +25,8 @@ router.delete("/users/:id",deletePost);
 router.get('/getuserspost',  getUserPost);
 router.get('/getuserscomment', getUserComment);
 router.get('/loginuserpost/:id',loginUserPost)
+router.get('/loginusercomment/:id',loginUsercomment)
+router.get("/autosearch",autoSearch)
 
 
 export default router;

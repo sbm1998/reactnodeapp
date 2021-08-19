@@ -11,6 +11,10 @@ const commentData = new Schema({
         type: String,
         required: true,
     },
+    id:{
+        type:String,
+        required:true,
+    }
 });
 var commentDetail = mongoose.model("commentDetail",commentData);
 

@@ -20,6 +20,7 @@ const Welcome=()=>{
            {/* <button onClick={() =>{history.push("/getusersdata");}}>ShowPost</button><br /><br /> */}
            <button onClick={() =>{history.push("/addComment");}}>AddComment</button><br /><br />
            <button onClick={() =>{history.push("/loguserpost");}}>LogUserPost</button><br /><br />
+           <button onClick={() =>{history.push("/autosearch");}}>Search..</button><br /><br />
 
            <button onClick={handleLogout}>Logout</button><br /><br />
            </center>

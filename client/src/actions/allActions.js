@@ -12,7 +12,11 @@ import {
     GET_COMMENT,
     GET_POST_ID,
     LOGIN_USER_POST,
+    LOGIN_USER_COMMENT,
+    SET_USER_POST,
+    AUTO_SEARCH
 } from './index'
+import AutoSearch from '../components/AutoSearch';
 
 export const createUser=(payload)=>{
     console.log(payload, 'adduser');
@@ -84,6 +88,21 @@ export const getComment=(payload)=>({
   
 export const loginPost=(payload)=>({
     type:LOGIN_USER_POST,
+    payload,
+})
+
+export const loginComment=(payload)=>({
+    type:LOGIN_USER_COMMENT,
+    payload,
+})
+
+export const setuserPost=(payload)=>({
+    type:SET_USER_POST,
+    payload,
+})
+
+export const autoSearch=(payload)=>({
+    type:AUTO_SEARCH,
     payload,
 })
 

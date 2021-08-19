@@ -2,12 +2,14 @@ import {useEffect} from 'react'
 import {useDispatch,useSelector} from 'react-redux'
 import {requestgetLoginUserPost} from '../userThunk'
 import { useHistory } from 'react-router-dom';
+import { setuserPost } from '../actions/allActions';
 
 
 export default function GetPost(){
     const dispatch=useDispatch();
     const records=useSelector((state)=>state.userData.posts);
     const postId=useSelector((state)=>state.userData.id);
+    const id=useSelector((state)=>state.userData.id);
     let history=useHistory();
 
     useEffect(()=>{
@@ -42,7 +44,11 @@ return (
 
                    {typeof record[field]==="object" ? JSON.stringify(record[field]) : record[field] }
                 </td>
-            ))}   
+            ))} 
+                <input type="button" Value="ShowComment" onClick={()=>{ dispatch(setuserPost(record))
+            history.push('/getcomment')}}/>
+            {id===record.id ? <input type="button" value="Add Comment" onClick={()=>{ dispatch(setuserPost(record))
+            history.push('/addComment')}}/>:""}
             </tr>)
         )}
         </tbody>

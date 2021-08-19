@@ -82,9 +82,9 @@ export const getUserPost= async(req,res)=>{
     }
 
     export const createuserComment = async (req, res) => {
-        const { name,body } = req.body;
+        const { name,body,id } = req.body;
     
-        const newPostMessage = new commentData({ name,body })
+        const newPostMessage = new commentData({ name,body,id })
     
         try {
             await newPostMessage.save();
@@ -97,8 +97,9 @@ export const getUserPost= async(req,res)=>{
 
 export const getUserComment= async(req,res)=>{
         //
+        const id=req.params.id;
         try{
-            const  postInformation= await commentData.find({});
+            const  postInformation= await commentData.find({id:id});
             res.status(200).json(postInformation)
             }
             catch(error){
@@ -117,3 +118,27 @@ export const loginUserPost=async(req,res)=>{
         res.status(404).json({message:error.message})
     }
 }
+
+export const loginUsercomment=async(req,res)=>{
+    try{
+        const id=req.params.id
+        const  postInformation= await commentData.find({postId:id});
+        res.status(200).json(postInformation)
+    }
+    catch(error){
+        console.log(error)
+        res.status(404).json({message:error.message})
+    }
+}
+
+export const autoSearch=async(req,res)=>{
+    try{
+        const  postInformation= await postData.find({});
+        res.status(200).json(postInformation)
+    }
+    catch(error){
+        console.log(error)
+        res.status(404).json({message:error.message})
+    }
+}
+

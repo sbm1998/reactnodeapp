@@ -1,33 +1,35 @@
 import React,{useState} from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch,useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { requestAddComment } from '../userThunk';
 
 
 
 const AddComment=()=>{
+    const postId=useSelector((state)=>state.userData.setUserPost._id);
     const [state,setState]=useState({
         name:"",
         body:"",
+        id:postId
     })
     const [error,setError]=useState(" ")
     let dispatch=useDispatch();
     let history=useHistory();
 
-    const {name,body}=state;
+    const {name,body,id}=state;
     const handleAddData=(e)=>{
         let {name,value}=e.target;
         setState({...state,[name]:value})
     }
     const handleSubmit= (e)=>{
         e.preventDefault();
-        if(!name || !body){
+        if(!name || !body || !id){
             setError("Fill All the Value First");
         }
         else{
             dispatch(requestAddComment(state));
-            console.log(state.name,state.body)
-            history.push("/getusers");
+            console.log(state.name,state.body,state.id)
+            history.push("/getcomment");
             setError("");
     }
 }
