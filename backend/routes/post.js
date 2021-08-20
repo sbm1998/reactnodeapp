@@ -10,7 +10,8 @@ import {getPosts,
         getUserComment,
         loginUserPost,
         loginUsercomment,
-        autoSearch
+        autoSearch,
+        createuserTask
     } 
     from '../controllers/posts.js'
 
@@ -27,6 +28,7 @@ router.get('/getuserscomment', getUserComment);
 router.get('/loginuserpost/:id',loginUserPost)
 router.get('/loginusercomment/:id',loginUsercomment)
 router.get("/autosearch",autoSearch)
+router.post('/usertask', createuserTask);
 
 
 export default router;

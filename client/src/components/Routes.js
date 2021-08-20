@@ -14,6 +14,7 @@ import AddComment from './AddComment';
 import GetComment from './GetComment';
 import loggedUserPost from './loggedUserPost'
 import AutoSearch from './AutoSearch';
+import AddTask from './AddTask';
 
 const PrivateRoute=(props)=>{
     const {token}=useSelector((state)=>state.userData)
@@ -41,7 +42,7 @@ function Routes(){
         <PrivateRoute path='/getcomment' exact component={GetComment}/>
         <PrivateRoute path='/loguserpost' exact component={loggedUserPost}/>
         <PrivateRoute path='/autosearch' exact component={AutoSearch}/>
-
+        <PrivateRoute path='/addtask' exact component={AddTask}/>
 
 
         <Route path='/' exact component={LandingPage} />

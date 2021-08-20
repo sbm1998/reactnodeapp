@@ -14,9 +14,10 @@ import {
     LOGIN_USER_POST,
     LOGIN_USER_COMMENT,
     SET_USER_POST,
-    AUTO_SEARCH
+    AUTO_SEARCH,
+    CREATE_TASK,
+    GET_TASK,
 } from './index'
-import AutoSearch from '../components/AutoSearch';
 
 export const createUser=(payload)=>{
     console.log(payload, 'adduser');
@@ -27,8 +28,11 @@ export const createUser=(payload)=>{
 export const signin=(payload)=>{
     console.log(payload.token)
     console.log(payload.result._id)
+    console.log(payload.result.name)
     localStorage.setItem("token",payload.token)
     localStorage.setItem("id",payload.result._id)
+    localStorage.setItem("name",payload.result.name)
+
     return{
     type:SIGN_IN,
     payload,
@@ -105,6 +109,16 @@ export const autoSearch=(payload)=>({
     type:AUTO_SEARCH,
     payload,
 })
+
+export const createTask=(payload)=>({
+    type:CREATE_TASK,
+    payload,
+})
+
+export const getTask=(payload)=>({
+    type:GET_TASK,
+    payload,
+  })
 
 
 

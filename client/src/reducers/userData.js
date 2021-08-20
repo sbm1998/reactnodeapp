@@ -24,7 +24,8 @@ const initialState={
     setUserPost:{},
     autoSearch:[],
     token: localStorage.getItem("token"),
-    id:localStorage.getItem("id")
+    id:localStorage.getItem("id"),
+    name:localStorage.getItem("name"),
 }
 
 export default function userData(state=initialState,action){
@@ -49,7 +50,10 @@ export default function userData(state=initialState,action){
         case SIGN_UP :
             return{
             ...state,
-            users:{...state.users, ...action.payload}
+            users:{...state.users, ...action.payload},
+            token:action.payload.token,
+            id:action.payload.id,
+            name:action.payload.name
                 }
         case DELETE_USER:
             return {...state,

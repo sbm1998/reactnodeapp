@@ -1,5 +1,20 @@
 import axios from 'axios';
-import {createUser,signup,signin,getusers,deleteusers,updateusers,createPost,getPost,createComment,getComment,loginPost,loginComment,autoSearch} from './actions/allActions'
+import {createUser,
+  signup,
+  signin,
+  getusers,
+  deleteusers,
+  updateusers,
+  createPost,
+  getPost,
+  createComment,
+  getComment,
+  loginPost,
+  loginComment,
+  autoSearch,
+  createTask,
+  getTask,
+} from './actions/allActions'
 const URL = axios.create({
     baseURL:  'http://localhost:8080',
   });
@@ -170,6 +185,38 @@ export const requestautoSearch=(state)=>{
     }
   }
 }
+export const requestAddTask= (newtask) => {
+  return async(dispatch)=>{
+  try{
+  const response=await URL.post('/usertask',newtask);
+
+  if(response.data) dispatch(createTask(response.data));
+  }catch(err){
+      console.log(err)
+  }
+ }
+}
+
+export const requestgetTask=(state)=>{
+  return async(dispatch)=>{
+      try {
+          console.log(state)
+          const usersData=await URL.get("/gettask",state)
+          console.log(usersData)
+          dispatch(getTask(usersData.data))
+      } catch (error) {
+          console.log(error)
+      }
+  }
+}
+
+
+
+
+
+
+
+
 
 
 

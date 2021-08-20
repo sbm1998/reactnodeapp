@@ -1,7 +1,7 @@
 import postData from '../models/postData.js'
 import postUserData from '../models/postUserData.js'
 import commentData from '../models/commentData.js'
-
+import taskData from '../models/taskData.js'
 export const getPosts= async(req,res)=>{
 //
     try{
@@ -142,3 +142,26 @@ export const autoSearch=async(req,res)=>{
     }
 }
 
+export const createuserTask = async (req, res) => {
+    const {title,date,stime,etime,user } = req.body;
+
+    const newUserTask = new taskData({ title,date,stime,etime,user })
+
+    try {
+        await newUserTask.save();
+
+        res.status(201).json(newUserTask );
+    } catch (error) {
+        res.status(409).json({ message: error.message });
+    }
+}
+
+export const getUserTask= async(req,res)=>{
+    //
+        try{
+            const  taskInformation= await taskData.find({});
+            res.status(200).json(taskInformation)
+        }catch(error){
+            res.status(404).json({message:error.message})
+        }
+    }
