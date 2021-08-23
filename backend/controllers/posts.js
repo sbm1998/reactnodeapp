@@ -159,9 +159,21 @@ export const createuserTask = async (req, res) => {
 export const getUserTask= async(req,res)=>{
     //
         try{
-            const  taskInformation= await taskData.find({});
-            res.status(200).json(taskInformation)
+            const  postInformation= await taskData.find({});
+            res.status(200).json(postInformation)
         }catch(error){
             res.status(404).json({message:error.message})
         }
     }
+
+export const filterUserTask = async (req, res) => {
+        try {
+            const {sdate,edate } = req.query;
+            const filterdata= await taskData.find({date:{$gte:(sdate.toString()),$lte:(edate.toString())}})
+            res.status(200).json(filterdata)
+        } catch (error) {
+            res.status(409).json({ message: error.message });
+        }
+    }
+
+

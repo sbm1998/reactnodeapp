@@ -14,6 +14,7 @@ import {createUser,
   autoSearch,
   createTask,
   getTask,
+  filterUserTask
 } from './actions/allActions'
 const URL = axios.create({
     baseURL:  'http://localhost:8080',
@@ -185,6 +186,7 @@ export const requestautoSearch=(state)=>{
     }
   }
 }
+
 export const requestAddTask= (newtask) => {
   return async(dispatch)=>{
   try{
@@ -197,23 +199,34 @@ export const requestAddTask= (newtask) => {
  }
 }
 
-export const requestgetTask=(state)=>{
+export const requestgetTask=(newtask)=>{
   return async(dispatch)=>{
       try {
-          console.log(state)
-          const usersData=await URL.get("/gettask",state)
+          console.log(newtask)
+          const usersData=await URL.get("/gettask",newtask)
           console.log(usersData)
           dispatch(getTask(usersData.data))
       } catch (error) {
           console.log(error)
+
       }
   }
 }
 
+export const requestFilterTask=(newtask)=>{
+  return async(dispatch)=>{
+      try {
+          console.log(newtask)
+          const {sdate,edate}=newtask
+          const userstask=await URL.get(`/datafilter?sdate=${sdate}&edate=${edate}`)
+          console.log(userstask)
+          dispatch(filterUserTask(userstask.data))
+      } catch (error) {
+          console.log(error)
 
-
-
-
+      }
+  }
+}
 
 
 

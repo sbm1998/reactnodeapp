@@ -16,5 +16,5 @@ export const SET_USER_POST='SET_USER_POST'
 export const AUTO_SEARCH="AUTO_SEARCH"
 export const CREATE_TASK="CREATE_TASK"
 export const GET_TASK="GET_TASK"
-
+export const FILTER_USER_TASK="FILTER_USER_TASK"
 

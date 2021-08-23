@@ -13,6 +13,9 @@ import {CREATE_USER,
     LOGIN_USER_COMMENT,
     SET_USER_POST,
     AUTO_SEARCH,
+    CREATE_TASK,
+    GET_TASK,
+    FILTER_USER_TASK,
 } from '../actions/index'
 
 const initialState={
@@ -23,6 +26,7 @@ const initialState={
     userId:null,
     setUserPost:{},
     autoSearch:[],
+    tasks:[],
     token: localStorage.getItem("token"),
     id:localStorage.getItem("id"),
     name:localStorage.getItem("name"),
@@ -116,6 +120,22 @@ export default function userData(state=initialState,action){
                 ...state,
                 autoSearch:action.payload
             }
+        case CREATE_TASK:
+            return{
+                ...state,
+                tasks:[...state.tasks,...action.payload]
+                }
+        case GET_TASK:
+            return{
+                ...state,
+                tasks:action.payload,
+                }
+        case FILTER_USER_TASK:
+            return{
+                ...state,
+                tasks:action.payload,
+            }
+        
         default:
         return state
     }

@@ -17,6 +17,8 @@ import {
     AUTO_SEARCH,
     CREATE_TASK,
     GET_TASK,
+    FILTER_USER_TASK,
+    
 } from './index'
 
 export const createUser=(payload)=>{
@@ -119,6 +121,15 @@ export const getTask=(payload)=>({
     type:GET_TASK,
     payload,
   })
+
+export const filterUserTask=(payload)=>({
+    type:FILTER_USER_TASK,
+    payload,
+})
+
+
+
+
 
 
 
